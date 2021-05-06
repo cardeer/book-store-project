@@ -36,4 +36,9 @@ export default {
   padding: 16px;
   text-align: center;
 }
+
+#button.disabled {
+  background-color: var(--disabled-color) !important;
+  color: var(--white) !important;
+}
 </style>

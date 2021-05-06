@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'bookstore',
+    title: 'ISEKAI OHAYOU',
     htmlAttrs: {
       lang: 'en',
     },
@@ -32,7 +32,7 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
-    dirs: ['~/components', '~/components/common', '~/components/common/cart'],
+    dirs: ['~/components', '~/components/common', '~/components/common/navbar'],
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

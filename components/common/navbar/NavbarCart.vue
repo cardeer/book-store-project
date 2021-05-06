@@ -22,8 +22,15 @@
         <div v-else id="navbar-cart-items" class="no-items">
           <span>You have no items in cart.</span>
         </div>
-        <nuxt-link id="navbar-cart-checkout" to="/cart">
-          <Button background-color="var(--primary-color)" color="var(--white)"
+        <nuxt-link
+          id="navbar-cart-checkout"
+          :class="$store.state.cartItems.length === 0 ? 'disabled' : ''"
+          to="/checkout"
+        >
+          <Button
+            :class="$store.state.cartItems.length === 0 ? 'disabled' : ''"
+            background-color="var(--primary-color)"
+            color="var(--white)"
             >Checkout</Button
           >
         </nuxt-link>
