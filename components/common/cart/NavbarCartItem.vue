@@ -1,0 +1,45 @@
+<template>
+  <div id="navbar-cart-item">
+    <span
+      id="navbar-cart-item-remove"
+      class="clickable"
+      @click="$emit('removeItem', item.id)"
+      ><Icon icon="close"
+    /></span>
+    <span id="navbar-cart-item-name">{{ item.name }}</span>
+    <span id="navbar-cart-item-quantity">{{ item.quantity }}</span>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+
+    quantity: {
+      type: Number,
+      default: 1,
+    },
+  },
+}
+</script>
+
+<style scoped>
+#navbar-cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+}
+
+#navbar-cart-item-name {
+  flex-grow: 1;
+  margin: 0 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+</style>
