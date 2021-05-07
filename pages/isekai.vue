@@ -6,6 +6,8 @@
       justify-content="center"
       align-items="center"
     >
+      <p id="title">Generate Secret Code</p>
+
       <input
         id="file-input"
         ref="input"
@@ -146,6 +148,12 @@ export default {
 #action-zone,
 #image-zone {
   height: calc(100vh - var(--navbar-height));
+}
+
+#title {
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 25px;
 }
 
 #link-input {
