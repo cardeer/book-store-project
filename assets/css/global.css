@@ -52,3 +52,10 @@ a {
 .flex-grow-1 {
   flex-grow: 1 !important;
 }
+
+.input {
+  border: 1px solid var(--input-border-color);
+  box-shadow: none;
+  outline: none;
+  padding: 16px;
+}

@@ -27,6 +27,10 @@ export default {
           title: 'Books',
           to: '/books',
         },
+        {
+          title: 'Isekai',
+          to: '/isekai',
+        },
       ],
     }
   },
@@ -43,7 +47,7 @@ export default {
   left: 0;
   width: 100%;
   height: var(--navbar-height);
-  background-color: var(--primary-color);
+  background-image: linear-gradient(90deg, #00c4cc, #7d2ae8);
   z-index: 9;
 }
 
