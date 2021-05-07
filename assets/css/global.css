@@ -54,6 +54,7 @@ a {
 }
 
 .input {
+  width: 100%;
   border: 1px solid var(--input-border-color);
   box-shadow: none;
   outline: none;

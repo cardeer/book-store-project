@@ -1,5 +1,8 @@
 <template>
   <Layout>
-    <h1>Books page !!!</h1>
+    <Container style="margin-top: 15px">
+      <input class="input" type="text" placeholder="Search book" />
+      <Row flex-wrap="wrap"></Row>
+    </Container>
   </Layout>
 </template>

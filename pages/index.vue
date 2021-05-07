@@ -6,7 +6,7 @@
           HOT <Icon icon="fire" color="red" :size="30" />
         </h1>
         <div class="divider"></div>
-        <Row id="books" flex-wrap="wrap">
+        <Row class="books" flex-wrap="wrap">
           <BookCard
             v-for="i in 8"
             :key="i"
@@ -18,7 +18,7 @@
       <div class="section" style="margin: 15px 20px">
         <h1 class="section-title">New</h1>
         <div class="divider"></div>
-        <Row id="books" flex-wrap="wrap">
+        <Row class="books" flex-wrap="wrap">
           <BookCard
             v-for="i in 8"
             :key="i + 8"
@@ -31,7 +31,7 @@
 </template>
 
 <style scoped>
-#books {
+.books {
   margin: 20px 16px;
 }
 
