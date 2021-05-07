@@ -47,7 +47,7 @@ export default {
   left: 0;
   width: 100%;
   height: var(--navbar-height);
-  background-image: linear-gradient(90deg, #00c4cc, #7d2ae8);
+  background-image: var(--navbar-color);
   z-index: 9;
 }
 

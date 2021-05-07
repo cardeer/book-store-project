@@ -75,7 +75,7 @@ export default {
 .book-card {
   --padding: 5px 10px;
   position: relative;
-  padding: 5px;
+  padding: 10px;
 }
 
 .book-card-content {
@@ -83,6 +83,7 @@ export default {
   position: relative;
   grid-template-rows: 53px 1fr 30px 50px;
   width: 100%;
+  max-width: 250px;
   height: 100%;
   background-color: var(--book-card-background-color);
   background-image: url(https://static2.cbrimages.com/wordpress/wp-content/uploads/2019/07/Isekai-Anime.jpg);

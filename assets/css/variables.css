@@ -6,9 +6,12 @@
   --green: #39ffcd;
   --disabled-color: #e0e0e0;
   --primary-color: #5271ff;
-  --navbar-cart-background-color: #4366ff;
+  --navbar-cart-background-color: #7d2ae8;
   --active-link-background-color: #ffffff;
   --book-card-background-color: white;
   --overlay-background-color: rgba(0, 0, 0, 0.5);
   --input-border-color: #888888;
+  --lighter-gray: #c5c5c5;
+  --navbar-color: linear-gradient(90deg, #00c4cc, #7d2ae8);
+  --red: red;
 }

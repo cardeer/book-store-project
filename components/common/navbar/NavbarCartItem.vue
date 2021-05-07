@@ -32,6 +32,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 10px 5px;
+  transition: all 0.3s ease;
+}
+
+.navbar-cart-item:hover {
+  background-color: var(--lighter-gray);
 }
 
 .navbar-cart-item-name {

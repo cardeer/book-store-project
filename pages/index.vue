@@ -1,13 +1,31 @@
 <template>
   <Layout>
     <Container>
-      <Row id="books" flex-wrap="wrap">
-        <BookCard
-          v-for="i in 10"
-          :key="i"
-          :book-data="{ id: i, name: 'Isekai ' + i }"
-        />
-      </Row>
+      <div class="section" style="margin: 15px 20px">
+        <h1 class="section-title">
+          HOT <Icon icon="fire" color="red" :size="30" />
+        </h1>
+        <div class="divider"></div>
+        <Row id="books" flex-wrap="wrap">
+          <BookCard
+            v-for="i in 8"
+            :key="i"
+            :book-data="{ id: i, name: 'Isekai ' + i }"
+          />
+        </Row>
+      </div>
+
+      <div class="section" style="margin: 15px 20px">
+        <h1 class="section-title">New</h1>
+        <div class="divider"></div>
+        <Row id="books" flex-wrap="wrap">
+          <BookCard
+            v-for="i in 8"
+            :key="i + 8"
+            :book-data="{ id: i + 8, name: 'Isekai ' + (i + 8) }"
+          />
+        </Row>
+      </div>
     </Container>
   </Layout>
 </template>
@@ -18,28 +36,11 @@
 }
 
 .book-card {
-  max-width: 300px;
-  width: calc(100% / 5);
+  width: 25%;
   height: 400px;
 }
 
-@media screen and (max-width: 1025px) {
-  .book-card {
-    width: calc(100% / 4);
-  }
-}
-@media screen and (max-width: 769px) {
-  .book-card {
-    width: calc(100% / 3);
-  }
-}
-@media screen and (max-width: 426px) {
-  #books {
-    justify-content: center !important;
-  }
-
-  .book-card {
-    width: 100%;
-  }
+.section-title {
+  margin: 0 0 15px 0;
 }
 </style>

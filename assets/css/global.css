@@ -59,3 +59,7 @@ a {
   outline: none;
   padding: 16px;
 }
+
+.divider {
+  border-top: 1px solid var(--input-border-color);
+}
