@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Container>
-      <div class="section">
+      <!-- <div class="section">
         <h1 class="section-title">
           HOT <Icon icon="fire" color="red" :size="30" />
         </h1>
@@ -25,7 +25,7 @@
             :book-data="{ id: i + 8, name: 'Isekai ' + (i + 8) }"
           />
         </Row>
-      </div>
+      </div> -->
     </Container>
   </Layout>
 </template>
