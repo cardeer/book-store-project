@@ -26,6 +26,7 @@
           id="navbar-cart-checkout"
           :class="$store.state.cartItems.length === 0 ? 'disabled' : ''"
           to="/checkout"
+          style="margin-top: 5px"
         >
           <Button
             :class="$store.state.cartItems.length === 0 ? 'disabled' : ''"
@@ -117,9 +118,5 @@
 
 #navbar-cart-items > :not(:last-child) {
   border-bottom: 1px solid var(--black);
-}
-
-#navbar-cart-checkout {
-  margin-top: 5px;
 }
 </style>

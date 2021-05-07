@@ -1,13 +1,12 @@
 <template>
-  <div id="navbar-cart-item">
+  <div class="navbar-cart-item">
     <span
-      id="navbar-cart-item-remove"
-      class="clickable"
+      class="navbar-cart-item-remove clickable"
       @click="$emit('removeItem', item.id)"
       ><Icon icon="close"
     /></span>
-    <span id="navbar-cart-item-name">{{ item.name }}</span>
-    <span id="navbar-cart-item-quantity">{{ item.quantity }}</span>
+    <span class="navbar-cart-item-name">{{ item.name }}</span>
+    <span class="navbar-cart-item-quantity">{{ item.quantity }}</span>
   </div>
 </template>
 
@@ -28,14 +27,14 @@ export default {
 </script>
 
 <style scoped>
-#navbar-cart-item {
+.navbar-cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 5px;
 }
 
-#navbar-cart-item-name {
+.navbar-cart-item-name {
   flex-grow: 1;
   margin: 0 15px;
   white-space: nowrap;

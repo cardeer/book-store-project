@@ -3,8 +3,11 @@
   --black: #292929;
   --white: #ffffff;
   --gray: #efefef;
+  --green: #39ffcd;
   --disabled-color: #e0e0e0;
   --primary-color: #5271ff;
   --navbar-cart-background-color: #4366ff;
   --active-link-background-color: #ffffff;
+  --book-card-background-color: white;
+  --overlay-background-color: rgba(0, 0, 0, 0.5);
 }

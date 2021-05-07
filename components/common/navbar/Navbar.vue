@@ -41,7 +41,7 @@ export default {
   padding: 0 0 0 16px;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: var(--navbar-height);
   background-color: var(--primary-color);
   z-index: 9;

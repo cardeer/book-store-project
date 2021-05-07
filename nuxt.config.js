@@ -32,7 +32,12 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
-    dirs: ['~/components', '~/components/common', '~/components/common/navbar'],
+    dirs: [
+      '~/components',
+      '~/components/common',
+      '~/components/common/navbar',
+      '~/components/common/layout',
+    ],
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

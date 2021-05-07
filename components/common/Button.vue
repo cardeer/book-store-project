@@ -1,5 +1,5 @@
 <template>
-  <div id="button" class="clickable" :style="style">
+  <div class="button clickable" :style="style" @click="$emit('click')">
     <slot />
   </div>
 </template>
@@ -29,15 +29,15 @@ export default {
 </script>
 
 <style scoped>
-#button {
+.button {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   padding: 16px;
   text-align: center;
 }
 
-#button.disabled {
+.button.disabled {
   background-color: var(--disabled-color) !important;
   color: var(--white) !important;
 }

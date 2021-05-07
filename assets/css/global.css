@@ -1,9 +1,13 @@
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   font-family: 'Open Sans', sans-serif;
 }
 
-html,
+html {
+  min-height: 100vh;
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -39,4 +43,8 @@ a {
 .disabled {
   pointer-events: none !important;
   cursor: default !important;
+}
+
+.bold {
+  font-weight: bold !important;
 }
