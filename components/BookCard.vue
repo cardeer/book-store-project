@@ -15,17 +15,36 @@
         quasi.
       </div>
       <Row
+        class="book-card-price bold"
+        justify-content="flex-start"
+        align-items="center"
+      >
+        <span>Price: $10</span>
+      </Row>
+      <Row
         class="book-card-footer"
-        justify-content="flex-end"
+        justify-content="center"
         align-items="center"
       >
         <Button
+          class="book-card-add-to-cart-button flex-grow-1"
           background-color="var(--green)"
-          style="padding: 5px 16px"
           @click="addToCart()"
-          ><Icon icon="cart-plus" style="margin-right: 10px" />Add to
-          Cart</Button
+          ><Icon icon="cart-plus" style="margin-right: 10px" />Add</Button
         >
+        <nuxt-link to="/books/view/999">
+          <Button
+            class="flex-grow-1"
+            background-color="transparent"
+            color="var(--white)"
+            style="padding: 5px 16px"
+            ><Icon
+              icon="magnify"
+              color="var(--white)"
+              style="margin-right: 10px"
+            />View</Button
+          >
+        </nuxt-link>
       </Row>
     </div>
   </div>
@@ -62,7 +81,7 @@ export default {
 .book-card-content {
   display: grid;
   position: relative;
-  grid-template-rows: 53px 1fr 50px;
+  grid-template-rows: 53px 1fr 30px 50px;
   width: 100%;
   height: 100%;
   background-color: var(--book-card-background-color);
@@ -72,6 +91,16 @@ export default {
   background-position: center;
   color: var(--white);
   border: 1px solid var(--black);
+  clip-path: polygon(
+    5% 0,
+    0 5%,
+    0 95%,
+    5% 100%,
+    95% 100%,
+    100% 95%,
+    100% 5%,
+    95% 0
+  );
   overflow: hidden;
   transition: transform 0.3s ease;
 }
@@ -91,8 +120,7 @@ export default {
   z-index: 1;
 }
 
-.book-card-content:hover > .book-card-description,
-.book-card-content:hover > .book-card-footer {
+.book-card-content:hover > .book-card-title ~ div {
   transform: translateY(0);
   visibility: visible;
   opacity: 1;
@@ -110,13 +138,24 @@ export default {
 }
 
 .book-card-description {
-  margin: 5px 0;
   padding: var(--padding);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--white);
   overflow: hidden auto;
 }
 
-.book-card-description,
-.book-card-footer {
+.book-card-price {
+  padding: var(--padding);
+}
+
+.book-card-add-to-cart-button {
+  padding: 5px 0 !important;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.book-card-title ~ div {
   transform: translateY(30px);
   visibility: hidden;
   opacity: 0;

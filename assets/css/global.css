@@ -48,3 +48,7 @@ a {
 .bold {
   font-weight: bold !important;
 }
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}

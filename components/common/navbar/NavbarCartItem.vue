@@ -6,7 +6,7 @@
       ><Icon icon="close"
     /></span>
     <span class="navbar-cart-item-name">{{ item.name }}</span>
-    <span class="navbar-cart-item-quantity">{{ item.quantity }}</span>
+    <span class="navbar-cart-item-quantity">x {{ item.quantity }}</span>
   </div>
 </template>
 
