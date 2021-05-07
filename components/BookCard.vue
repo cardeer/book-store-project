@@ -1,25 +1,19 @@
 <template>
   <div class="book-card">
-    <div class="book-card-content">
+    <div class="book-card-content" :style="style">
       <Overlay />
       <div class="book-card-title bold">
-        {{ bookData.name }}
+        {{ book.name }}
       </div>
       <div class="book-card-description scrollbar">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum maiores
-        nihil hic nisi accusamus explicabo, ipsa aperiam praesentium obcaecati
-        repellat autem, natus in mollitia rerum odit iusto illum quae sed?
-        Aliquid porro maiores dignissimos beatae dolorem ad sint. Amet odio
-        veniam distinctio, eligendi repudiandae voluptates asperiores quod est
-        magni tenetur, vero incidunt! Sequi molestias est iste quia nulla, et
-        quasi.
+        {{ book.description }}
       </div>
       <Row
         class="book-card-price bold"
         justify-content="flex-start"
         align-items="center"
       >
-        <span>Price: $10</span>
+        <span>Price: ${{ book.unit_price }}</span>
       </Row>
       <Row
         class="book-card-footer"
@@ -33,7 +27,7 @@
           @click="addToCart()"
           ><Icon icon="cart-plus" style="margin-right: 10px" />Add</Button
         >
-        <nuxt-link :to="`/books/view/${bookData.id}`" class="flex-grow-1">
+        <nuxt-link :to="`/books/view/${book.isbn}`" class="flex-grow-1">
           <Button
             background-color="var(--primary-color)"
             color="var(--white)"
@@ -53,17 +47,28 @@
 <script>
 export default {
   props: {
-    bookData: {
+    book: {
       type: Object,
       default: () => {},
     },
   },
 
+  data() {
+    return {
+      style: {
+        backgroundImage:
+          this.book.image_url !== ''
+            ? `url(${this.book.image_url})`
+            : `url(https://picsum.photos/250/400)`,
+      },
+    }
+  },
+
   methods: {
     addToCart() {
       this.$store.dispatch('addCartItem', {
-        id: this.bookData.id,
-        name: this.bookData.name,
+        id: this.book.id,
+        name: this.book.name,
         quantity: 1,
       })
     },
@@ -86,7 +91,6 @@ export default {
   max-width: 250px;
   height: 100%;
   background-color: var(--book-card-background-color);
-  background-image: url(https://static2.cbrimages.com/wordpress/wp-content/uploads/2019/07/Isekai-Anime.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -130,6 +134,7 @@ export default {
 .book-card-title {
   padding: var(--padding);
   background-color: var(--overlay-background-color);
+  line-height: 1.4;
   overflow: hidden;
 }
 

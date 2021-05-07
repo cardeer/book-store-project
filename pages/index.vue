@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Container>
-      <div class="section" style="margin: 15px 20px">
+      <div class="section">
         <h1 class="section-title">
           HOT <Icon icon="fire" color="red" :size="30" />
         </h1>
@@ -15,7 +15,7 @@
         </Row>
       </div>
 
-      <div class="section" style="margin: 15px 20px">
+      <div class="section">
         <h1 class="section-title">New</h1>
         <div class="divider"></div>
         <Row class="books" flex-wrap="wrap">
