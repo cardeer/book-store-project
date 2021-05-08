@@ -70,11 +70,10 @@ export default {
     createImage() {
       this.submit = true
 
-      const split = this.link.split('/books/view/')
-      const id = parseInt(split[1]) - 1
-      const r = Math.floor(id / 65536)
-      const g = Math.floor((id % 65536) / 256)
-      const b = id % 256
+      let split = this.link.split('/books/view/')
+      split = [split[1].substring(0, 7), split[1].substring(7)]
+      const color1 = this.$getColorFromId(parseInt(split[0]))
+      const color2 = this.$getColorFromId(parseInt(split[1]))
 
       const canvas = document.createElement('canvas')
       canvas.width = this.canvasWidth
@@ -93,8 +92,11 @@ export default {
           backgroundImage.height
         )
 
-        ctx.fillStyle = `rgb(${r}, ${g}, ${b}`
+        ctx.fillStyle = `rgb(${color1[0]}, ${color1[1]}, ${color1[2]}`
         ctx.fillRect(0, 0, 1, 1)
+
+        ctx.fillStyle = `rgb(${color2[0]}, ${color2[1]}, ${color2[2]}`
+        ctx.fillRect(299, 0, 1, 1)
 
         ctx.font = '25px Open Sans'
         ctx.fillStyle = 'white'
@@ -104,7 +106,7 @@ export default {
         ctx.font = '16px Open Sans'
         ctx.fillText('Isekai Book Store', 150, 200)
         ctx.textAlign = 'right'
-        ctx.fillText(`#${id + 1}`, 285, 285)
+        ctx.fillText(`#${split.join('')}`, 285, 285)
 
         this.$refs.imageZone.appendChild(canvas)
       }
@@ -118,27 +120,26 @@ export default {
       const file = this.$refs.input.files[0]
 
       const image = new Image()
+      image.onload = () => {
+        ctx.drawImage(image, 0, 0)
+        const { data } = ctx.getImageData(
+          0,
+          0,
+          this.canvasWidth,
+          this.canvasHeight
+        )
+        dummyCanvas.remove()
+        const ids = this.$extractColorsFromImageData(data).map((v) =>
+          this.$getIdFromColor(v[0], v[1], v[2])
+        )
+        this.$router.push(`/books/view/${ids[0]}${ids[1]}`)
+      }
 
       const fileReader = new FileReader()
       fileReader.onload = () => {
         image.src = fileReader.result
       }
       fileReader.readAsDataURL(file)
-
-      image.onload = () => {
-        ctx.drawImage(image, 0, 0)
-        this.getImageData(
-          ctx.getImageData(0, 0, this.canvasWidth, this.canvasHeight)
-        )
-        dummyCanvas.remove()
-      }
-    },
-
-    getImageData({ data }) {
-      const r = data[0]
-      const g = data[1]
-      const b = data[2]
-      this.$router.push(`/books/view/${this.$getIdFromColor(r, g, b)}`)
     },
   },
 }
