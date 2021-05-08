@@ -53,6 +53,9 @@
         id="checkout-form"
         class="form"
       >
+        <h2 style="font-weight: normal">
+          Please enter information for delivery
+        </h2>
         <div class="form-group">
           <label>Name</label>
           <input v-model="name" class="input" type="text" />

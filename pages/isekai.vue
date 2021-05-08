@@ -102,7 +102,7 @@ export default {
         ctx.fillStyle = 'white'
         ctx.textAlign = 'center'
         ctx.fillText('Isekai', 150, 120)
-        ctx.fillText('Ohayou', 150, 150)
+        ctx.fillText('Shop', 150, 150)
         ctx.font = '16px Sarabun'
         ctx.fillText('Isekai Book Store', 150, 200)
         ctx.textAlign = 'right'

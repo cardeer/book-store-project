@@ -9,7 +9,7 @@
         >{{ link.title }}</nuxt-link
       >
     </div>
-    <p id="navbar-title">isekai ohayou</p>
+    <p id="navbar-title">ISEKAI</p>
     <NavbarCart id="navbar-cart" />
   </div>
 </template>
