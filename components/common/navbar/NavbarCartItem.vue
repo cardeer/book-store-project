@@ -2,12 +2,18 @@
   <div class="navbar-cart-item">
     <div
       class="navbar-cart-item-remove clickable"
-      @click="$emit('removeItem', item.id)"
+      @click="$emit('removeItem', item.isbn)"
     >
       <Icon icon="close" />
     </div>
     <div class="navbar-cart-item-name">{{ item.name }}</div>
-    <div class="navbar-cart-item-quantity">x {{ item.quantity }}</div>
+    <div class="navbar-cart-item-quantity">
+      <span style="color: var(--primary-color)">
+        {{ item.price }}
+      </span>
+      THB &times;
+      {{ item.quantity }}
+    </div>
   </div>
 </template>
 
@@ -18,19 +24,14 @@ export default {
       type: Object,
       required: true,
     },
-
-    quantity: {
-      type: Number,
-      default: 1,
-    },
   },
 }
 </script>
 
 <style scoped>
 .navbar-cart-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 25px 1fr 1fr;
   align-items: center;
   padding: 10px 5px;
   transition: all 0.3s ease;
@@ -41,9 +42,7 @@ export default {
 }
 
 .navbar-cart-item-name {
-  flex-grow: 1;
   margin: 0 15px;
-  width: 50%;
   text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -51,7 +50,6 @@ export default {
 }
 
 .navbar-cart-item-quantity {
-  flex-grow: 1;
   text-align: right;
 }
 </style>

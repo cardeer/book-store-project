@@ -13,7 +13,7 @@
         justify-content="flex-start"
         align-items="center"
       >
-        <span>Price: ${{ book.unit_price }}</span>
+        <span>Price: {{ book.unit_price }} THB</span>
       </Row>
       <Row
         class="book-card-footer"
@@ -24,7 +24,7 @@
           class="book-card-add-to-cart-button flex-grow-1"
           background-color="var(--green)"
           style="padding: 5px 16px"
-          @click="addToCart()"
+          @click="$store.dispatch('addCartItem', book)"
           ><Icon icon="cart-plus" style="margin-right: 10px" />Add</Button
         >
         <nuxt-link :to="`/books/view/${book.isbn}`" class="flex-grow-1">
@@ -63,16 +63,6 @@ export default {
       },
     }
   },
-
-  methods: {
-    addToCart() {
-      this.$store.dispatch('addCartItem', {
-        id: this.book.id,
-        name: this.book.name,
-        quantity: 1,
-      })
-    },
-  },
 }
 </script>
 
@@ -81,12 +71,14 @@ export default {
   --padding: 5px 10px;
   position: relative;
   padding: 10px;
+  height: 400px;
 }
 
 .book-card-content {
   display: grid;
   position: relative;
-  grid-template-rows: 53px 1fr 30px 50px;
+  grid-template-rows: 54px 1fr 30px 50px;
+  margin: 0 auto;
   width: 100%;
   max-width: 250px;
   height: 100%;

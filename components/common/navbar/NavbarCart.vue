@@ -1,6 +1,6 @@
 <template>
   <div id="navbar-cart">
-    <nuxt-link to="/cart">
+    <nuxt-link to="/checkout">
       <Icon id="navbar-cart-icon" icon="cart-outline" color="var(--white)" />
     </nuxt-link>
     <div id="navbar-cart-items-gap"></div>
@@ -14,7 +14,7 @@
         >
           <NavbarCartItem
             v-for="item in $store.state.cartItems"
-            :key="item.id"
+            :key="item.isbn"
             :item="item"
             @removeItem="$store.dispatch('removeCartItem', $event)"
           />
@@ -32,8 +32,12 @@
             :class="$store.state.cartItems.length === 0 ? 'disabled' : ''"
             background-color="var(--primary-color)"
             color="var(--white)"
-            >Checkout</Button
           >
+            Checkout&nbsp;
+            <span v-if="$store.state.cartItems.length > 0">
+              {{ $store.getters.totalPrice }} THB
+            </span>
+          </Button>
         </nuxt-link>
       </div>
     </div>

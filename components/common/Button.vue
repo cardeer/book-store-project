@@ -15,6 +15,14 @@ export default {
       type: String,
       default: 'var(--black)',
     },
+    rounded: {
+      type: Boolean,
+      default: false,
+    },
+    height: {
+      type: Number,
+      default: null,
+    },
   },
 
   data() {
@@ -22,6 +30,8 @@ export default {
       style: {
         backgroundColor: this.backgroundColor,
         color: this.color,
+        borderRadius: this.rounded ? '1000px' : '0',
+        height: this.height ? this.height + 'px' : 'auto',
       },
     }
   },

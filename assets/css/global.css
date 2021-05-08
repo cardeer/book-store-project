@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
 * {
   box-sizing: border-box !important;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Sarabun', sans-serif;
 }
 
 html {
@@ -54,13 +56,66 @@ a {
 }
 
 .input {
+  padding: 16px;
   width: 100%;
+  font-size: 16px;
   border: 1px solid var(--input-border-color);
   box-shadow: none;
   outline: none;
-  padding: 16px;
 }
 
 .divider {
   border-top: 1px solid var(--input-border-color);
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.my-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.table > thead th {
+  width: attr(width px);
+  border-bottom: 1px solid var(--black);
+}
+
+.table td,
+.table th {
+  padding: 10px;
+}
+
+.table > tfoot th {
+  border-top: 1px solid var(--black);
+}
+
+.form > .form-group:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form-group > .input {
+  margin-top: 10px;
 }

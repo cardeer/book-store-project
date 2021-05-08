@@ -1,13 +1,17 @@
 export default {
-  addCartItem({ commit }, item) {
+  addCartItem({ commit }, item, quantity = 1) {
     commit('addCartItem', {
-      id: item.id,
+      isbn: item.isbn,
       name: item.name,
-      price: 10,
-      quantity: item.quantity,
+      image_url: item.image_url,
+      price: item.unit_price,
+      quantity,
     })
   },
   removeCartItem({ commit }, itemId) {
     commit('removeCartItem', itemId)
+  },
+  clearCartItems({ commit }) {
+    commit('clearCartItems')
   },
 }

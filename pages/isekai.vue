@@ -98,12 +98,12 @@ export default {
         ctx.fillStyle = `rgb(${color2[0]}, ${color2[1]}, ${color2[2]}`
         ctx.fillRect(299, 0, 1, 1)
 
-        ctx.font = '25px Open Sans'
+        ctx.font = '25px Sarabun'
         ctx.fillStyle = 'white'
         ctx.textAlign = 'center'
         ctx.fillText('Isekai', 150, 120)
         ctx.fillText('Ohayou', 150, 150)
-        ctx.font = '16px Open Sans'
+        ctx.font = '16px Sarabun'
         ctx.fillText('Isekai Book Store', 150, 200)
         ctx.textAlign = 'right'
         ctx.fillText(`#${split.join('')}`, 285, 285)

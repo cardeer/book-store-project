@@ -20,10 +20,6 @@ export default {
     return {
       links: [
         {
-          title: 'Home',
-          to: '/',
-        },
-        {
           title: 'Books',
           to: '/books',
         },

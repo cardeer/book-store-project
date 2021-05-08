@@ -21,11 +21,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/assets/css/fonts.css',
-    '~/assets/css/variables.css',
-    '~/assets/css/global.css',
-  ],
+  css: ['~/assets/css/variables.css', '~/assets/css/global.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/get_book_id.js'],
@@ -54,7 +50,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://34.87.0.11:4000',
+    baseURL: 'http://34.87.35.254:4000',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
