@@ -59,6 +59,12 @@ export default {
   },
 
   auth: {
+    strategies: {
+      google: {
+        cliendId:
+          '322525152965-hbqp3g534551bgrnapf5u7kmu4s07ved.apps.googleusercontent.com',
+      },
+    },
     redirect: {
       login: '/',
       logout: '/',
