@@ -46,7 +46,9 @@ export default {
       const dev = process.env.NODE_ENV === 'development'
       window.location.href = `https://accounts.google.com/o/oauth2/auth?protocol=oauth2&response_type=token&access_type&client_id=322525152965-hbqp3g534551bgrnapf5u7kmu4s07ved.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F${
         dev ? 'localhost' : '35.247.181.83'
-      }%3A3000%2Fcallback&scope=openid%20profile%20email&state=g6eKOz7KOR`
+      }${
+        dev ? '%3A3000%' : ''
+      }2Fcallback&scope=openid%20profile%20email&state=g6eKOz7KOR`
     },
   },
 }
