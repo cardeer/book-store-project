@@ -1,13 +1,15 @@
 export default {
-  nuxtServerInit({ commit }, app) {
+  async nuxtServerInit({ commit }, app) {
     if (app.$auth.loggedIn) {
-      console.log(app.$auth.user)
-      // const { data } = await app.$axios.post('profile', {
-      //   headers: {
-      //     Authorization: app.$auth.strategy.token.get(),
-      //   },
-      // })
-      // console.log(data)
+      const data = await app.$axios.post('profile', {
+        headers: {
+          Authorization: app.$auth.strategy.token.get(),
+        },
+      })
+
+      if (data.status === 200) {
+        commit('setUserId', data.data.id)
+      }
     }
   },
 

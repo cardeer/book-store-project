@@ -16,4 +16,7 @@ export default {
   clearCartItems(state) {
     state.cartItems = []
   },
+  setUserId(state, id) {
+    state.userId = id
+  },
 }
