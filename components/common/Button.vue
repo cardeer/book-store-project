@@ -40,11 +40,13 @@ export default {
 
 <style scoped>
 .button {
+  position: relative;
   display: flex;
+  padding: 16px;
   justify-content: center;
   align-items: center;
-  padding: 16px;
   text-align: center;
+  overflow: hidden;
 }
 
 .button.disabled {

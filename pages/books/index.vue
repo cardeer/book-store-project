@@ -24,6 +24,7 @@ export default {
   },
 
   async fetch() {
+    delete this.$axios.defaults.headers.common.Authorization
     const { data } = await this.$axios.get('books')
     this.books = data
   },

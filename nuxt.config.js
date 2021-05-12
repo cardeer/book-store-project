@@ -46,11 +46,25 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://34.87.35.254:4000',
+    baseURL: 'http://35.247.181.83:4000',
+  },
+
+  router: {
+    middleware: ['auth'],
+  },
+
+  auth: {
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/callback',
+      home: '/books',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
