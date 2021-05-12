@@ -9,7 +9,7 @@
       ></div>
       <!-- left -->
       <div id="right">
-        <h3 id="login-card-title">Login to ISEKAI</h3>
+        <h3 id="login-card-title">Welcome to ISEKAI</h3>
         <Button
           v-if="!$auth.loggedIn"
           id="login"
@@ -17,7 +17,6 @@
           color="var(--white)"
           rounded
           :height="40"
-          style="margin-top: auto"
           @click="login"
         >
           <span id="login-bubble-1"></span>
@@ -41,14 +40,15 @@
 export default {
   layout: 'empty',
   auth: 'guest',
+
+  beforeDestroy() {
+    clearInterval(this.interval)
+    document.removeEventListener('mousemove', this.move)
+  },
+
   methods: {
     login() {
-      const dev = process.env.NODE_ENV === 'development'
-      window.location.href = `https://accounts.google.com/o/oauth2/auth?protocol=oauth2&response_type=token&access_type&client_id=322525152965-hbqp3g534551bgrnapf5u7kmu4s07ved.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F${
-        dev ? 'localhost' : '35.247.181.83'
-      }${
-        dev ? '%3A3000%' : ''
-      }2Fcallback&scope=openid%20profile%20email&state=g6eKOz7KOR`
+      this.$auth.loginWith('google')
     },
   },
 }
@@ -56,10 +56,15 @@ export default {
 
 <style scoped>
 .layout {
-  padding: 0 !important;
+  padding: 0 20px !important;
   justify-content: center;
   align-items: center;
   background-image: var(--navbar-color);
+}
+
+#login {
+  min-width: 250px;
+  max-width: 250px;
 }
 
 #login > :nth-last-child(-n + 2) {
@@ -108,24 +113,28 @@ export default {
   background-color: white;
   border-radius: 10px;
   box-shadow: 3px 3px 10px #606060;
+  overflow: hidden;
 }
 
 #login-card-title {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
 #left {
   flex-grow: 1;
   background-size: cover;
+  background-position: center;
 }
 
 #right {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  min-width: 300px;
-  max-width: 300px;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+  max-width: 350px;
 }
 </style>

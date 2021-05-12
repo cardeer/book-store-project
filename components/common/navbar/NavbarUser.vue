@@ -1,6 +1,6 @@
 <template>
   <div id="navbar-user" class="clickable" @click="menuActive = !menuActive">
-    <div id="navbar-user-name">{{ $auth.user.name }}</div>
+    <div id="navbar-user-name">{{ $auth.user.given_name }}</div>
     <div
       id="navbar-user-menu"
       :style="{ display: menuActive ? 'flex' : 'none' }"

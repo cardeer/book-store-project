@@ -61,8 +61,13 @@ export default {
   auth: {
     strategies: {
       google: {
-        cliendId:
+        clientId:
           '322525152965-hbqp3g534551bgrnapf5u7kmu4s07ved.apps.googleusercontent.com',
+        token: {
+          maxAge: 60 * 60 * 24,
+        },
+        codeChallengeMethod: '',
+        responseType: 'token id_token',
       },
     },
     redirect: {
