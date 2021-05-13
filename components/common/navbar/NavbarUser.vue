@@ -1,6 +1,17 @@
 <template>
   <div id="navbar-user" class="clickable" @click="menuActive = !menuActive">
-    <div id="navbar-user-name">{{ $auth.user.given_name }}</div>
+    <div id="navbar-user-name">
+      <img
+        id="navbar-user-image"
+        :src="
+          $auth.user.avatar_url !== ''
+            ? $auth.user.avatar_url
+            : $auth.user.gravatar_id
+        "
+        alt="user"
+      />
+      {{ $auth.user.name }}
+    </div>
     <div
       id="navbar-user-menu"
       :style="{ display: menuActive ? 'flex' : 'none' }"
@@ -20,7 +31,8 @@ export default {
   },
 
   methods: {
-    logout() {
+    async logout() {
+      await this.$githubLogout()
       this.$auth.logout()
     },
   },
@@ -30,10 +42,25 @@ export default {
 <style scoped>
 #navbar-user {
   position: relative;
-  padding: 5px 15px;
+  padding-right: 15px;
   border: 1px solid var(--white);
   border-radius: 100px;
   color: white;
+}
+
+#navbar-user-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar-user-image {
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  user-select: none;
+  pointer-events: none;
 }
 
 #navbar-user-arrow {

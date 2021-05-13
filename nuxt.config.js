@@ -20,11 +20,16 @@ export default {
     ],
   },
 
+  env: {
+    clientId: 'eb7634a0f04152a7f62e',
+    clientSecret: 'fc5e59abf07d0f3a99457fa910f97de12739a5f4',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/css/variables.css', '~/assets/css/global.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/get_book_id.js'],
+  plugins: ['~/plugins/get_book_id.js', '~/plugins/github_logout.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
@@ -60,14 +65,9 @@ export default {
 
   auth: {
     strategies: {
-      google: {
-        clientId:
-          '322525152965-hbqp3g534551bgrnapf5u7kmu4s07ved.apps.googleusercontent.com',
-        token: {
-          maxAge: 60 * 60 * 24,
-        },
-        codeChallengeMethod: '',
-        responseType: 'token id_token',
+      github: {
+        clientId: 'eb7634a0f04152a7f62e',
+        clientSecret: 'fc5e59abf07d0f3a99457fa910f97de12739a5f4',
       },
     },
     redirect: {

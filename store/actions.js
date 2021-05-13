@@ -6,7 +6,6 @@ export default {
           Authorization: app.$auth.strategy.token.get(),
         },
       })
-
       if (data.status === 200) {
         commit('setUserId', data.data.id)
       }

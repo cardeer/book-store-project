@@ -13,7 +13,7 @@
         <Button
           v-if="!$auth.loggedIn"
           id="login"
-          background-color="var(--red)"
+          background-color="var(--github-color)"
           color="var(--white)"
           rounded
           :height="40"
@@ -24,7 +24,7 @@
           <span id="login-bubble-3"></span>
           <Icon
             id="login-logo"
-            icon="google"
+            icon="github"
             color="var(--white)"
             style="margin-right: 10px"
           />
@@ -41,14 +41,9 @@ export default {
   layout: 'empty',
   auth: 'guest',
 
-  beforeDestroy() {
-    clearInterval(this.interval)
-    document.removeEventListener('mousemove', this.move)
-  },
-
   methods: {
     login() {
-      this.$auth.loginWith('google')
+      this.$auth.loginWith('github')
     },
   },
 }
