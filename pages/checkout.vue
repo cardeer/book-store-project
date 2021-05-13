@@ -142,7 +142,6 @@ export default {
         'makeOrder',
         {
           header: {
-            user: 1,
             address: this.address,
           },
           details: this.$store.state.cartItems.map((v, i) => ({
